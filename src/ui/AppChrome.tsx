@@ -10,7 +10,7 @@ export function ProductHeader({ actions }: { actions?: ReactNode }) {
       <Group gap={8} wrap="nowrap">
         <Box className="appChromeMark" aria-hidden>IC</Box>
         <Text size="sm" fw={700} className="appChromeTitle">ICeRuCa</Text>
-        <Text size="xs" c="dimmed" className="appChromeVersion">0.1</Text>
+        <Text size="xs" c="dimmed" className="appChromeVersion">0.2</Text>
       </Group>
       <Group gap={4} wrap="nowrap">
         <Tooltip label={colorScheme === 'dark' ? 'ライトモード' : 'ダークモード'}>

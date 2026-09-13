@@ -36,7 +36,7 @@ export default defineConfig({
         navigateFallback: '/index.html',
         navigateFallbackDenylist: [/^\/health/, /^\/robots\.txt/, /^\/sitemap\.xml/, /^\/llms\.txt/, /^\/\.well-known\//],
         globPatterns: ['**/*.{js,css,html,ico,png,svg,json,geojson,webmanifest}'],
-        maximumFileSizeToCacheInBytes: 3 * 1024 * 1024,
+        maximumFileSizeToCacheInBytes: 12 * 1024 * 1024,
       },
     }),
   ],

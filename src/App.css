@@ -105,6 +105,106 @@
   background: light-dark(#eef3f5, #172126);
 }
 
+.networkMapHost {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.mapEmpty {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  color: var(--mantine-color-dimmed);
+  text-align: center;
+  background: light-dark(var(--mantine-color-gray-1), var(--mantine-color-dark-8));
+}
+
+.perspectiveNav {
+  width: 100%;
+  border-radius: 0;
+}
+
+.perspectiveNav .mantine-SegmentedControl-label {
+  min-height: 40px;
+  padding-inline: 6px;
+}
+
+.pageScroll {
+  height: 100%;
+}
+
+.pageContent {
+  width: min(1180px, 100%);
+  min-height: 100%;
+  margin-inline: auto;
+}
+
+.mapPanel {
+  height: min(650px, calc(100dvh - 230px));
+  min-height: 360px;
+}
+
+.mapFrame,
+.companyMap {
+  flex: 1 1 auto;
+  min-height: 320px;
+  overflow: hidden;
+  border: 1px solid var(--mantine-color-default-border);
+  border-radius: var(--mantine-radius-md);
+}
+
+.companyMap {
+  height: 360px;
+  flex: none;
+}
+
+.splitView {
+  display: grid;
+  grid-template-columns: 300px minmax(0, 1fr);
+  height: calc(100dvh - 112px);
+  min-height: 0;
+  overflow: hidden;
+}
+
+.splitList {
+  display: flex;
+  min-height: 0;
+  flex-direction: column;
+}
+
+.innerScroll {
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.listButton {
+  width: 100%;
+  min-height: 44px;
+  padding: 8px 10px;
+  border: 1px solid var(--mantine-color-default-border);
+  border-radius: var(--mantine-radius-sm);
+  text-align: left;
+}
+
+.listButton[data-active] {
+  border-color: var(--mantine-primary-color-filled);
+  background: var(--mantine-primary-color-light);
+}
+
+.checkStrip {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(150px, 1fr));
+  gap: 8px;
+  overflow-x: auto;
+}
+
+.checkCard {
+  min-height: 96px;
+}
+
 .networkMap .leaflet-control-zoom a {
   color: var(--mantine-color-text);
   background: var(--mantine-color-body);
@@ -120,6 +220,10 @@
 }
 
 .mapLegend {
+  position: absolute;
+  z-index: 500;
+  top: 10px;
+  right: 10px;
   min-width: 154px;
   padding: 8px 10px;
   color: var(--mantine-color-text);
@@ -223,6 +327,27 @@
 
   .resultSummary {
     max-height: min(280px, 42%);
+  }
+
+  .perspectiveNav .mantine-SegmentedControl-label {
+    padding-inline: 3px;
+    font-size: var(--mantine-font-size-xs);
+  }
+
+  .splitView {
+    display: flex;
+    height: auto;
+    flex-direction: column;
+    overflow: visible;
+  }
+
+  .splitList .innerScroll {
+    max-height: 240px;
+  }
+
+  .mapPanel {
+    height: calc(100dvh - 250px);
+    min-height: 320px;
   }
 }
 

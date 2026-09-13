@@ -1,0 +1,84 @@
+[
+  {
+    "id": "atami-suica-toica",
+    "name": "熱海",
+    "operators": ["東日本旅客鉄道", "東海旅客鉄道"],
+    "icAreaIds": ["suica-shutoken", "toica-tokai"],
+    "latch": "shared",
+    "transfer": "gate_choice",
+    "note": "両社の駅データを持つ境界駅。エリアまたぎ可否は別判定"
+  },
+  {
+    "id": "maibara-icoca-toica",
+    "name": "米原",
+    "operators": ["西日本旅客鉄道", "東海旅客鉄道"],
+    "icAreaIds": ["icoca-jr-west", "toica-tokai"],
+    "latch": "shared",
+    "transfer": "gate_choice",
+    "note": "両社の駅データを持つ境界駅。エリアまたぎ可否は別判定"
+  },
+  {
+    "id": "shimonoseki-west-kyushu",
+    "name": "下関",
+    "operators": ["西日本旅客鉄道", "九州旅客鉄道"],
+    "icAreaIds": ["icoca-jr-west", "sugoca-north"],
+    "latch": "shared",
+    "transfer": "inside",
+    "note": "JR西日本とJR九州の接続。ICOCA・SUGOCAのエリアまたぎ可否は別判定"
+  },
+  {
+    "id": "kameyama-west-central",
+    "name": "亀山",
+    "operators": ["西日本旅客鉄道", "東海旅客鉄道"],
+    "icAreaIds": ["icoca-jr-west", "toica-tokai"],
+    "latch": "shared",
+    "transfer": "inside",
+    "note": "JR西日本とJR東海の接続。エリアまたぎ可否は別判定"
+  },
+  {
+    "id": "kojima-west-shikoku",
+    "name": "児島",
+    "operators": ["西日本旅客鉄道", "四国旅客鉄道"],
+    "icAreaIds": ["icoca-jr-west", "icoca-shikoku"],
+    "latch": "shared",
+    "transfer": "inside",
+    "note": "JR西日本とJR四国の接続駅"
+  },
+  {
+    "id": "daishoji-hapi-ir",
+    "name": "大聖寺",
+    "operators": ["ハピラインふくい", "IRいしかわ鉄道"],
+    "icAreaIds": ["icoca-hapi", "icoca-ir"],
+    "latch": "shared",
+    "transfer": "inside",
+    "note": "ハピラインふくいとIRいしかわ鉄道の接続駅"
+  },
+  {
+    "id": "kanazawa-ir-ainokaze",
+    "name": "金沢",
+    "operators": ["IRいしかわ鉄道", "あいの風とやま鉄道"],
+    "icAreaIds": ["icoca-ir", "icoca-ainokaze"],
+    "latch": "shared",
+    "transfer": "inside",
+    "note": "IRいしかわ鉄道とあいの風とやま鉄道の接続駅"
+  },
+  {
+    "id": "tsuruga-hapi-west",
+    "name": "敦賀",
+    "operators": ["ハピラインふくい", "西日本旅客鉄道"],
+    "icAreaIds": ["icoca-hapi", "icoca-jr-west"],
+    "latch": "shared",
+    "transfer": "inside",
+    "note": "ハピラインふくいとJR西日本の接続駅"
+  },
+  {
+    "id": "hamamatsucho-monorail",
+    "name": "浜松町",
+    "aliases": ["大門"],
+    "operators": ["東日本旅客鉄道", "東京モノレール", "東京都交通局", "東京地下鉄"],
+    "icAreaIds": ["suica-shutoken", "pasmo-shutoken"],
+    "latch": "shared",
+    "transfer": "outside",
+    "note": "改札外乗換を含む運賃計算上の接続"
+  }
+]

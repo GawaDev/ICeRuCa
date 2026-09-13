@@ -1,7 +1,7 @@
 {
   "name": "iceruca",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "交通系ICカードの利用条件を公式情報から確認するWebアプリ",
   "license": "MIT",
   "author": "GawaDev",
@@ -26,7 +26,7 @@
     "data:rail": "node scripts/build-rail-data.mjs",
     "assets:brand": "node scripts/generate-brand-assets.mjs",
     "assets:screenshots": "npm run build && node scripts/capture-pwa-screenshots.mjs && npm run build",
-    "license:check": "license-checker-rseidelsohn --production --excludePackages iceruca@0.1.0 --onlyAllow \"MIT;MIT*;ISC;BSD-2-Clause;Apache-2.0;0BSD;(MIT OR CC0-1.0);(MPL-2.0 OR Apache-2.0)\""
+    "license:check": "license-checker-rseidelsohn --production --excludePackages iceruca@0.2.0 --onlyAllow \"MIT;MIT*;ISC;BSD-2-Clause;Apache-2.0;0BSD;(MIT OR CC0-1.0);(MPL-2.0 OR Apache-2.0)\""
   },
   "dependencies": {
     "@mantine/core": "^9.6.0",

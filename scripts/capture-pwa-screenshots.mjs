@@ -22,7 +22,6 @@ try {
 
   const narrow = await browser.newPage({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true });
   await narrow.goto(origin);
-  await narrow.getByRole('button', { name: '確認結果を見る' }).click();
   await narrow.locator('.leaflet-tile-loaded').first().waitFor({ timeout: 15_000 });
   await narrow.screenshot({ path: fileURLToPath(new URL('../public/screenshots/narrow-map.png', import.meta.url)) });
 } finally {

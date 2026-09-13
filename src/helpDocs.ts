@@ -10,6 +10,7 @@ const markdown = import.meta.glob('../docs/**/*.md', {
 export const helpDocs: HelpDoc[] = [
   { id: 'manual/01-intro.md', title: 'はじめに', group: 'マニュアル' },
   { id: 'manual/02-card.md', title: 'カードから確認する', group: 'マニュアル' },
+  { id: 'manual/07-company.md', title: '会社から確認する', group: 'マニュアル' },
   { id: 'manual/03-journey.md', title: '駅間と乗換を確認する', group: 'マニュアル' },
   { id: 'manual/04-services.md', title: '定期券・新幹線・ポイント', group: 'マニュアル' },
   { id: 'manual/05-troubleshooting.md', title: '困ったときは', group: 'マニュアル' },

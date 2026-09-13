@@ -1,0 +1,315 @@
+{
+  "rules": [
+    {
+      "areaId": "icoca",
+      "title": "JR西日本管内は一体化",
+      "detail": "2018年9月15日以降は営業キロ200kmと駅・経路条件を確認します"
+    },
+    {
+      "areaId": "icoca",
+      "title": "二重線区間",
+      "detail": "指定駅以外ではIC乗降できません"
+    },
+    {
+      "areaId": "suica",
+      "title": "一部対応駅",
+      "detail": "SF乗車以外の取扱いに制限があります"
+    }
+  ],
+  "stations": [
+    {
+      "areaId": "icoca",
+      "line": "山陰",
+      "icRide": "none",
+      "reason": "二重線区間の非対応駅",
+      "name": "下山"
+    },
+    {
+      "areaId": "icoca",
+      "line": "山陰",
+      "icRide": "none",
+      "reason": "二重線区間の非対応駅",
+      "name": "和知"
+    },
+    {
+      "areaId": "icoca",
+      "line": "山陰",
+      "icRide": "none",
+      "reason": "二重線区間の非対応駅",
+      "name": "安栖里"
+    },
+    {
+      "areaId": "icoca",
+      "line": "山陰",
+      "icRide": "none",
+      "reason": "二重線区間の非対応駅",
+      "name": "立木"
+    },
+    {
+      "areaId": "icoca",
+      "line": "山陰",
+      "icRide": "none",
+      "reason": "二重線区間の非対応駅",
+      "name": "山家"
+    },
+    {
+      "areaId": "icoca",
+      "line": "山陰",
+      "icRide": "none",
+      "reason": "二重線区間の非対応駅",
+      "name": "高津"
+    },
+    {
+      "areaId": "icoca",
+      "line": "山陰",
+      "icRide": "none",
+      "reason": "二重線区間の非対応駅",
+      "name": "石原"
+    },
+    {
+      "areaId": "icoca",
+      "line": "山陰",
+      "icRide": "none",
+      "reason": "二重線区間の非対応駅",
+      "name": "上川口"
+    },
+    {
+      "areaId": "icoca",
+      "line": "山陰",
+      "icRide": "none",
+      "reason": "二重線区間の非対応駅",
+      "name": "下夜久野"
+    },
+    {
+      "areaId": "icoca",
+      "line": "山陰",
+      "icRide": "none",
+      "reason": "二重線区間の非対応駅",
+      "name": "上夜久野"
+    },
+    {
+      "areaId": "icoca",
+      "line": "山陰",
+      "icRide": "none",
+      "reason": "二重線区間の非対応駅",
+      "name": "梁瀬"
+    },
+    {
+      "areaId": "icoca",
+      "line": "山陰",
+      "icRide": "none",
+      "reason": "二重線区間の非対応駅",
+      "name": "養父"
+    },
+    {
+      "areaId": "icoca",
+      "line": "山陰",
+      "icRide": "none",
+      "reason": "二重線区間の非対応駅",
+      "name": "国府"
+    },
+    {
+      "areaId": "icoca",
+      "line": "山陰",
+      "icRide": "none",
+      "reason": "二重線区間の非対応駅",
+      "name": "玄武洞"
+    },
+    {
+      "areaId": "icoca",
+      "line": "舞鶴",
+      "icRide": "none",
+      "reason": "二重線区間の非対応駅",
+      "name": "淵垣"
+    },
+    {
+      "areaId": "icoca",
+      "line": "舞鶴",
+      "icRide": "none",
+      "reason": "二重線区間の非対応駅",
+      "name": "梅迫"
+    },
+    {
+      "areaId": "icoca",
+      "line": "舞鶴",
+      "icRide": "none",
+      "reason": "二重線区間の非対応駅",
+      "name": "真倉"
+    },
+    {
+      "areaId": "icoca",
+      "line": "播但",
+      "icRide": "none",
+      "reason": "二重線区間の非対応駅",
+      "name": "長谷"
+    },
+    {
+      "areaId": "icoca",
+      "line": "播但",
+      "icRide": "none",
+      "reason": "二重線区間の非対応駅",
+      "name": "新井"
+    },
+    {
+      "areaId": "icoca",
+      "line": "播但",
+      "icRide": "none",
+      "reason": "二重線区間の非対応駅",
+      "name": "青倉"
+    },
+    {
+      "areaId": "sugoca",
+      "name": "竜ケ水",
+      "aliases": [
+        "竜ヶ水"
+      ],
+      "line": "日豊",
+      "icRide": "none",
+      "reason": "SUGOCA鹿児島エリア内の公式非対応駅"
+    },
+    {
+      "areaId": "suica",
+      "line": "東北",
+      "icRide": "none",
+      "reason": "Suica仙台エリア内の非対応駅",
+      "name": "田尻"
+    },
+    {
+      "areaId": "suica",
+      "line": "東北",
+      "icRide": "none",
+      "reason": "Suica仙台エリア内の非対応駅",
+      "name": "瀬峰"
+    },
+    {
+      "areaId": "suica",
+      "line": "東北",
+      "icRide": "none",
+      "reason": "Suica仙台エリア内の非対応駅",
+      "name": "梅ケ沢"
+    },
+    {
+      "areaId": "suica",
+      "line": "東北",
+      "icRide": "none",
+      "reason": "Suica仙台エリア内の非対応駅",
+      "name": "新田"
+    },
+    {
+      "areaId": "suica",
+      "line": "東北",
+      "icRide": "none",
+      "reason": "Suica仙台エリア内の非対応駅",
+      "name": "石越"
+    },
+    {
+      "areaId": "suica",
+      "line": "東北",
+      "icRide": "none",
+      "reason": "Suica仙台エリア内の非対応駅",
+      "name": "油島"
+    },
+    {
+      "areaId": "suica",
+      "line": "東北",
+      "icRide": "none",
+      "reason": "Suica仙台エリア内の非対応駅",
+      "name": "花泉"
+    },
+    {
+      "areaId": "suica",
+      "line": "東北",
+      "icRide": "none",
+      "reason": "Suica仙台エリア内の非対応駅",
+      "name": "清水原"
+    },
+    {
+      "areaId": "suica",
+      "line": "東北",
+      "icRide": "none",
+      "reason": "Suica仙台エリア内の非対応駅",
+      "name": "有壁"
+    },
+    {
+      "areaId": "suica",
+      "icRide": "partial",
+      "reason": "Suica一部対応駅",
+      "name": "一ノ関"
+    },
+    {
+      "areaId": "suica",
+      "icRide": "partial",
+      "reason": "Suica一部対応駅",
+      "name": "作並"
+    },
+    {
+      "areaId": "suica",
+      "icRide": "partial",
+      "reason": "Suica一部対応駅",
+      "name": "山形"
+    },
+    {
+      "areaId": "suica",
+      "icRide": "partial",
+      "reason": "Suica一部対応駅",
+      "name": "古川"
+    },
+    {
+      "areaId": "suica",
+      "icRide": "partial",
+      "reason": "Suica一部対応駅",
+      "name": "会津若松"
+    },
+    {
+      "areaId": "suica",
+      "icRide": "partial",
+      "reason": "Suica一部対応駅",
+      "name": "喜多方"
+    },
+    {
+      "areaId": "suica",
+      "icRide": "partial",
+      "reason": "Suica一部対応駅",
+      "name": "小千谷"
+    },
+    {
+      "areaId": "suica",
+      "icRide": "partial",
+      "reason": "Suica一部対応駅",
+      "name": "柏崎"
+    },
+    {
+      "areaId": "suica",
+      "icRide": "partial",
+      "reason": "Suica一部対応駅",
+      "name": "直江津"
+    },
+    {
+      "areaId": "suica",
+      "icRide": "partial",
+      "reason": "Suica一部対応駅",
+      "name": "村上"
+    },
+    {
+      "areaId": "toica",
+      "line": "高山",
+      "icRide": "limited",
+      "reason": "特急利用時などの条件付き対応",
+      "name": "下呂"
+    },
+    {
+      "areaId": "toica",
+      "line": "高山",
+      "icRide": "limited",
+      "reason": "特急利用時などの条件付き対応",
+      "name": "高山"
+    },
+    {
+      "areaId": "toica",
+      "line": "高山",
+      "icRide": "limited",
+      "reason": "特急利用時などの条件付き対応",
+      "name": "飛驒古川"
+    }
+  ]
+}
