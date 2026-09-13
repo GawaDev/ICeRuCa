@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: iceruca
+    runtime: node
+    plan: free
+    region: singapore
+    buildCommand: npm ci && npm run build
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_VERSION
+        value: 22
+      - key: ICERUCA_PUBLIC_ORIGIN
+        value: https://iceruca.onrender.com

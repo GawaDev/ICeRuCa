@@ -1,0 +1,11 @@
+---
+alwaysApply: true
+---
+# 共通アプリUI
+
+- Mantineを使用し、製品固有の10段階ブランド色を唯一の主アクセントにする。
+- ヘッダー40px、ペイン見出し36px、デスクトップは3ペイン、768px以下は40px以上の操作対象と画面切替を使う。
+- AppShellからペインまでflexと`min-height: 0`で高さを渡し、本文全体をスクロールさせない。
+- `viewport-fit=cover`、safe-area、100dvhを併用する。
+- PWAは192px、512px、maskable、Apple Touch、favicon.ico、OG画像、実画面スクリーンショット、オフライン試験を揃える。
+- 390px前後で主要操作、スクロール、モーダル、横はみ出しを実操作する。

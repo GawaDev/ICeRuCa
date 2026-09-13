@@ -1,32 +1,32 @@
-# React + TypeScript + Vite
+# ICeRuCa
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+交通系ICカードの利用条件を、カード、媒体、交通事業者、エリア、利用目的ごとに公式情報から確認するWebアプリです。
 
-Currently, two official plugins are available:
+## 機能
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- 全国相互利用10カード、地域カード、地域連携ICの条件確認
+- カード、会社、駅間、乗換改札、サービスの5視点
+- 外部地図へ接続しない駅・路線表示
+- 根拠URLと確認日の表示
+- モバイル画面、PWA、オフライン起動
 
-## React Compiler
+## 開発
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```bash
+npm ci
+npm run dev
+npm run lint
+npm run test:run
+npm run build
+npm run test:e2e
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+`data/raw/n02.geojson`へ国土数値情報N02を配置した場合、`npm run data:rail`で表示用データを生成します。N02は地図形状にだけ使い、IC利用可否の根拠にはしません。
+
+## 公開
+
+`render.yaml`はNode Web Service、`/health`、自動デプロイを定義します。公開先は `https://iceruca.onrender.com` を想定しています。
+
+## ライセンス
+
+アプリ本体はMIT Licenseです。第三者データとライブラリは `THIRD_PARTY.md` を確認してください。

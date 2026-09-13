@@ -1,0 +1,8 @@
+# ICeRuCa
+
+交通系ICカードの利用条件を公式情報から確認するWebアプリ。
+
+Canonical application: https://iceruca.onrender.com/
+Repository: https://github.com/GawaDev/ICeRuCa
+
+確認結果はカード、媒体、事業者、エリア、利用目的、有効日の組み合わせです。全国相互利用を全国すべての交通機関へ一般化しません。
