@@ -39,8 +39,10 @@
   flex-direction: column;
 }
 
-.mainSplitter {
+.appWorkspace {
+  display: grid;
   flex: 1 1 auto;
+  grid-template-columns: 288px minmax(0, 1fr);
   min-height: 0;
 }
 
@@ -54,13 +56,44 @@
 }
 
 .paneScroll,
-.workspaceContent,
-.detailsPane > .mantine-ScrollArea-root {
+.workspaceContent {
   flex: 1 1 auto;
   min-height: 0;
 }
 
+.controlsPane {
+  border-right: 1px solid var(--mantine-color-default-border);
+}
+
+.resultPane {
+  min-width: 0;
+}
+
+.resultLayout {
+  display: flex;
+  flex: 1 1 auto;
+  min-height: 0;
+  flex-direction: column;
+}
+
+.resultSummary {
+  flex: 0 1 auto;
+  max-height: min(250px, 42%);
+  border-bottom: 1px solid var(--mantine-color-default-border);
+}
+
+.resultLabel {
+  padding: 10px 16px 0;
+}
+
+.resultWorkspace {
+  flex: 1 1 auto;
+  min-height: 220px;
+  overflow: hidden;
+}
+
 .workspaceContent {
+  height: 100%;
   position: relative;
   overflow: hidden;
   background: light-dark(var(--mantine-color-gray-1), var(--mantine-color-dark-8));
@@ -69,45 +102,40 @@
 .networkMap {
   width: 100%;
   height: 100%;
-  display: block;
-  background:
-    radial-gradient(circle at 30% 35%, light-dark(#e3f1f5, #20323a), transparent 35%),
-    light-dark(#eef3f5, #172126);
+  background: light-dark(#eef3f5, #172126);
 }
 
-.japanGuide {
-  fill: none;
-  stroke: light-dark(#d0dadd, #34454c);
-  stroke-width: 55;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+.networkMap .leaflet-control-zoom a {
+  color: var(--mantine-color-text);
+  background: var(--mantine-color-body);
 }
 
-.railGuide {
-  fill: none;
-  stroke: light-dark(#84949b, #71828a);
-  stroke-width: 3;
-  stroke-dasharray: 6 5;
+.networkMap .leaflet-control-attribution {
+  color: var(--mantine-color-dimmed);
+  background: color-mix(in srgb, var(--mantine-color-body) 88%, transparent);
 }
 
-.stationPoint {
-  cursor: pointer;
-  outline: none;
+.networkMap .leaflet-control-attribution a {
+  color: var(--mantine-primary-color-filled);
 }
 
-.stationPoint:focus-visible circle {
-  stroke: var(--mantine-primary-color-filled);
-  stroke-width: 5;
-}
-
-.mapLegend rect {
-  fill: var(--mantine-color-body);
-  stroke: var(--mantine-color-default-border);
-}
-
-.mapLegend text {
-  fill: var(--mantine-color-text);
+.mapLegend {
+  min-width: 154px;
+  padding: 8px 10px;
+  color: var(--mantine-color-text);
   font-size: 12px;
+  line-height: 1.8;
+  background: var(--mantine-color-body);
+  border: 1px solid var(--mantine-color-default-border);
+  border-radius: var(--mantine-radius-sm);
+}
+
+.mapLegend span {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-right: 7px;
+  border-radius: 50%;
 }
 
 .selectableCard {
@@ -178,10 +206,23 @@
     min-height: var(--app-touch-min);
   }
 
-  .mainSplitter > .mantine-Splitter-pane {
-    flex: 1 1 100% !important;
+  .appWorkspace {
+    display: block;
+    flex: 1 1 auto;
+    min-height: 0;
+  }
+
+  .appWorkspace > .pane {
+    height: 100%;
     width: 100% !important;
-    max-width: 100% !important;
+  }
+
+  .controlsPane {
+    border-right: 0;
+  }
+
+  .resultSummary {
+    max-height: min(280px, 42%);
   }
 }
 

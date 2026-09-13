@@ -1,6 +1,7 @@
 # 第三者ライセンス
 
-- Mantine、React、Tabler Icons、marked、DOMPurify、Workboxは各プロジェクトのライセンスに従います。
+- Mantine、React、Tabler Icons、marked、DOMPurify、Workboxは各プロジェクトのライセンスに従います。LeafletはBSD-2-Clauseです。
+- 背景地図と地図データはOpenStreetMap contributorsが提供し、Open Data Commons Open Database Licenseに従います。地図上に出典を表示します。
 - 国土交通省「国土数値情報（鉄道データ）N02-2025」はCC BY 4.0の条件で利用できます。本アプリでは地図用データへ加工したことを表示します。
 - 交通系ICカード名、サービス名、会社名は識別と説明のために使用します。本アプリは各発行者・交通事業者の公式サービスではありません。
 

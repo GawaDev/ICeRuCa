@@ -2,8 +2,8 @@ import { expect, test } from '@playwright/test';
 
 test('モバイルで5つの確認方法と結果へ到達できる', async ({ page }) => {
   await page.goto('/');
-  const panes = page.getByRole('radiogroup', { name: '条件、地図、確認結果の切替' });
-  await expect(panes).toBeVisible();
+  const views = page.getByRole('radiogroup', { name: '条件と確認結果の切替' });
+  await expect(views).toBeVisible();
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
 
   for (const label of ['カード', '会社', '駅間検索', '乗換改札', 'サービス']) {
@@ -12,7 +12,9 @@ test('モバイルで5つの確認方法と結果へ到達できる', async ({ p
   }
 
   await page.getByText('カード', { exact: true }).first().click();
-  await panes.getByText('確認結果', { exact: true }).click();
+  await page.getByRole('button', { name: '確認結果を見る' }).click();
+  const mapBox = await page.getByRole('application', { name: 'IC利用エリアの地図' }).boundingBox();
+  expect(mapBox?.width).toBeGreaterThanOrEqual(380);
   await expect(page.getByText('Suica・PASMOエリア')).toBeVisible();
   await expect(page.locator('.mantine-Badge-label').filter({ hasText: '利用できます' })).toBeVisible();
 

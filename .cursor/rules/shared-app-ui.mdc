@@ -9,3 +9,4 @@ alwaysApply: true
 - `viewport-fit=cover`、safe-area、100dvhを併用する。
 - PWAは192px、512px、maskable、Apple Touch、favicon.ico、OG画像、実画面スクリーンショット、オフライン試験を揃える。
 - 390px前後で主要操作、スクロール、モーダル、横はみ出しを実操作する。
+- 地理確認を目的とする画面では、概形だけの自作図を地図として扱わない。実地図、出典表示、タイル通信の説明、CSPを同時に整備する。

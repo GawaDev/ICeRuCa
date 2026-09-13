@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import {
-  ActionIcon, Anchor, AppShell, Badge, Box, Divider, Group, NavLink, Paper,
-  ScrollArea, SegmentedControl, Select, SimpleGrid, Splitter, Stack, Text,
+  ActionIcon, Anchor, AppShell, Badge, Box, Button, Divider, Group, NavLink, Paper,
+  ScrollArea, SegmentedControl, Select, SimpleGrid, Stack, Text,
   ThemeIcon, Title, Tooltip,
 } from '@mantine/core';
 import { useDisclosure, useMediaQuery } from '@mantine/hooks';
@@ -20,7 +20,7 @@ import { PaneHeader, ProductHeader } from './ui/AppChrome';
 import './App.css';
 
 type Perspective = 'card' | 'company' | 'journey' | 'transfer' | 'service';
-type MobilePane = 'controls' | 'workspace' | 'details';
+type MobileView = 'controls' | 'result';
 
 const perspectives = [
   { id: 'card' as const, label: 'カード', icon: IconCreditCard },
@@ -66,7 +66,7 @@ export default function App() {
   const isNarrow = useMediaQuery('(max-width: 768px)');
   const [helpOpened, help] = useDisclosure(false);
   const [perspective, setPerspective] = useState<Perspective>('card');
-  const [mobilePane, setMobilePane] = useState<MobilePane>('controls');
+  const [mobileView, setMobileView] = useState<MobileView>('controls');
   const [cardId, setCardId] = useState('suica');
   const [areaId, setAreaId] = useState('pasmo');
   const [medium, setMedium] = useState<Medium>('physical');
@@ -92,6 +92,7 @@ export default function App() {
     label: `${station.name}・${operatorById(station.operatorId).name}`,
   }));
   const headerHeight = isPhone ? 46 : isNarrow ? 44 : 40;
+  const mapVisible = !isNarrow || mobileView === 'result';
 
   const detailsTitle = (() => {
     if (perspective === 'card') return `${selectedCard.name}・${areaById(areaId)?.name}`;
@@ -103,7 +104,7 @@ export default function App() {
 
   const selectPerspective = (value: Perspective) => {
     setPerspective(value);
-    if (isNarrow) setMobilePane('controls');
+    if (isNarrow) setMobileView('controls');
   };
 
   const controls = (
@@ -134,12 +135,13 @@ export default function App() {
       {perspective === 'service' &&
         <Select label="サービス" data={services.map((service) => ({ value: service.id, label: service.name }))} value={serviceId} onChange={(value) => value && setServiceId(value)} />}
       <Text size="xs" c="dimmed">表示内容は2026年9月14日に公式情報を確認しています。</Text>
+      {isNarrow && <Button onClick={() => setMobileView('result')}>確認結果を見る</Button>}
     </Stack>
   );
 
   const workspace = (
     <Box className="workspaceContent">
-      {((perspective === 'card' && workspaceMode === 'map') || perspective === 'journey') &&
+      {mapVisible && ((perspective === 'card' && workspaceMode === 'map') || perspective === 'journey') &&
         <NetworkMap cardId={cardId} selectedStationId={stationId} onSelectStation={setStationId} />}
       {perspective === 'card' && workspaceMode === 'list' &&
         <ScrollArea h="100%"><Stack p="lg">
@@ -188,7 +190,7 @@ export default function App() {
   );
 
   const details = (
-    <ScrollArea h="100%"><Stack p="md">
+    <Stack p="md">
       <Text fw={700}>{detailsTitle}</Text>
       {perspective === 'card' && <><StatusBadge status={result.status} /><Text size="sm">{result.detail}</Text><SourceLink sourceId={result.source.id} /></>}
       {perspective === 'company' && operatorAreas.map((area) => (
@@ -211,7 +213,7 @@ export default function App() {
         <Text size="sm">{selectedStation.name}・{selectedStation.line}</Text>
         {selectedStation.note && <Text size="xs">{selectedStation.note}</Text>}
       </>}
-    </Stack></ScrollArea>
+    </Stack>
   );
 
   return (
@@ -221,22 +223,26 @@ export default function App() {
       </AppShell.Header>
       <AppShell.Main className="appMain">
         <Box className="workspaceHost">
-          {isNarrow && <SegmentedControl key={mobilePane} className="mobilePaneSwitch" aria-label="条件、地図、確認結果の切替" fullWidth value={mobilePane} transitionDuration={0}
-            onChange={(value) => setMobilePane(value as MobilePane)}
-            data={[{ value: 'controls', label: '条件' }, { value: 'workspace', label: '地図・一覧' }, { value: 'details', label: '確認結果' }]} />}
-          <Splitter orientation="horizontal" className="mainSplitter" withHandle={!isNarrow}>
-            <Splitter.Pane defaultSize={20} min="240px" style={{ display: isNarrow && mobilePane !== 'controls' ? 'none' : undefined }}>
-              <Box className="pane controlsPane"><PaneHeader title="条件" /><ScrollArea className="paneScroll">{controls}</ScrollArea></Box>
-            </Splitter.Pane>
-            <Splitter.Pane defaultSize={60} min={40} style={{ display: isNarrow && mobilePane !== 'workspace' ? 'none' : undefined }}>
-              <Box className="pane mapPane"><PaneHeader title={perspectives.find((item) => item.id === perspective)!.label}
+          {isNarrow && <SegmentedControl className="mobilePaneSwitch" aria-label="条件と確認結果の切替" fullWidth value={mobileView} transitionDuration={0}
+            onChange={(value) => setMobileView(value as MobileView)}
+            data={[{ value: 'controls', label: '条件' }, { value: 'result', label: '確認結果' }]} />}
+          <Box className="appWorkspace">
+            <Box className="pane controlsPane" style={{ display: isNarrow && mobileView !== 'controls' ? 'none' : undefined }}>
+              <PaneHeader title="条件" /><ScrollArea className="paneScroll">{controls}</ScrollArea>
+            </Box>
+            <Box className="pane resultPane" style={{ display: isNarrow && mobileView !== 'result' ? 'none' : undefined }}>
+              <PaneHeader title={perspectives.find((item) => item.id === perspective)!.label}
                 actions={perspective === 'card' ? <SegmentedControl size="xs" value={workspaceMode} onChange={(value) => setWorkspaceMode(value as 'map' | 'list')}
-                  data={[{ value: 'map', label: '地図' }, { value: 'list', label: '一覧' }]} /> : undefined} />{workspace}</Box>
-            </Splitter.Pane>
-            <Splitter.Pane defaultSize={20} min="260px" style={{ display: isNarrow && mobilePane !== 'details' ? 'none' : undefined }}>
-              <Box className="pane detailsPane"><PaneHeader title="確認結果" />{details}</Box>
-            </Splitter.Pane>
-          </Splitter>
+                  data={[{ value: 'map', label: '地図' }, { value: 'list', label: '一覧' }]} /> : undefined} />
+              <Box className="resultLayout">
+                <ScrollArea className="resultSummary">
+                  <Text className="resultLabel" size="xs" fw={700} c="dimmed">確認結果</Text>
+                  {details}
+                </ScrollArea>
+                <Box className="resultWorkspace">{workspace}</Box>
+              </Box>
+            </Box>
+          </Box>
         </Box>
       </AppShell.Main>
       <HelpModal opened={helpOpened} onClose={help.close} />

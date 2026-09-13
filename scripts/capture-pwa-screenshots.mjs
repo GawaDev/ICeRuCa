@@ -17,12 +17,14 @@ const browser = await chromium.launch();
 try {
   const wide = await browser.newPage({ viewport: { width: 1280, height: 720 } });
   await wide.goto(origin);
-  await wide.screenshot({ path: fileURLToPath(new URL('../public/screenshots/wide.png', import.meta.url)) });
+  await wide.locator('.leaflet-tile-loaded').first().waitFor({ timeout: 15_000 });
+  await wide.screenshot({ path: fileURLToPath(new URL('../public/screenshots/wide-map.png', import.meta.url)) });
 
   const narrow = await browser.newPage({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true });
   await narrow.goto(origin);
-  await narrow.getByRole('radiogroup', { name: '条件、地図、確認結果の切替' }).getByText('地図・一覧').click();
-  await narrow.screenshot({ path: fileURLToPath(new URL('../public/screenshots/narrow.png', import.meta.url)) });
+  await narrow.getByRole('button', { name: '確認結果を見る' }).click();
+  await narrow.locator('.leaflet-tile-loaded').first().waitFor({ timeout: 15_000 });
+  await narrow.screenshot({ path: fileURLToPath(new URL('../public/screenshots/narrow-map.png', import.meta.url)) });
 } finally {
   await browser.close();
   server.kill();

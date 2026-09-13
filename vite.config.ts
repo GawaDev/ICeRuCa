@@ -8,7 +8,7 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['favicon.ico', 'favicon.svg', 'favicon.png', 'apple-touch-icon.png', 'pwa-192.png', 'pwa-512.png', 'pwa-maskable-512.png', 'og.png', 'screenshots/wide.png', 'screenshots/narrow.png'],
+      includeAssets: ['favicon.ico', 'favicon.svg', 'favicon.png', 'apple-touch-icon.png', 'pwa-192.png', 'pwa-512.png', 'pwa-maskable-512.png', 'og.png', 'screenshots/wide-map.png', 'screenshots/narrow-map.png'],
       manifest: {
         id: '/',
         name: APP_NAME,
@@ -28,8 +28,8 @@ export default defineConfig({
           { src: 'pwa-maskable-512.png', sizes: '512x512', type: 'image/png', purpose: 'maskable' },
         ],
         screenshots: [
-          { src: 'screenshots/wide.png', sizes: '1280x720', type: 'image/png', form_factor: 'wide', label: 'カードと利用エリアの確認' },
-          { src: 'screenshots/narrow.png', sizes: '390x844', type: 'image/png', form_factor: 'narrow', label: 'スマートフォンの確認画面' },
+          { src: 'screenshots/wide-map.png', sizes: '1280x720', type: 'image/png', form_factor: 'wide', label: '地図でカードと利用エリアを確認' },
+          { src: 'screenshots/narrow-map.png', sizes: '390x844', type: 'image/png', form_factor: 'narrow', label: 'スマートフォンの地図画面' },
         ],
       },
       workbox: {
